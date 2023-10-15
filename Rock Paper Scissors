@@ -1,0 +1,23 @@
+import random
+
+#start game and ask user for choice. computer randomly selects.
+def play():
+    user = input("Enter 'r' for rock, 'p' for paper, 's' for scissors.")
+    computer = random.choice(['r', 'p', 's'])
+
+#set RPS win/loss/tie
+    if user == computer:
+        return ('\n'f'TIE. The computer also chose {user}.')
+
+    if is_win(user, computer):
+        return ('\n'f'WIN! The computer chose {computer}.')
+
+    return ('\n'f'Loss. The computer chose {computer}.')
+
+#define win conditions. Return true for infinite game loop
+def is_win(player, opponent):
+    if (player == 'r' and opponent == 's') or (player == 'p' and opponent == 'r') \
+        or (player == 's' and opponent == 'p'):
+        return True
+while True:
+    print(play())
